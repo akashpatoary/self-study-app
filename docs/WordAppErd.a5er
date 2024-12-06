@@ -1,0 +1,170 @@
+﻿# A5:ER FORMAT:18
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.19.2 Copyright © 1997 - 2024 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=Self-Study-App
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=7
+RDBMSTypeName=PostgreSQL
+CommonField="created_at","created_at","timestamp with time zone","NOT NULL",,"","",$FFFFFFFF
+CommonField="updated_at","updated_at","timestamp with time zone","NOT NULL",,"","",$FFFFFFFF
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+BugFixEntityWidth=1
+
+[Entity]
+PName=User
+LName=User
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=150
+Top=100
+Field="id","id","serial","NOT NULL",0,"","",$FFFFFFFF,""
+Field="name","name","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="email","email","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="password","password","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20241207064127
+Position="Main",150,100,146,114
+ZOrder=1
+
+[Entity]
+PName=Question
+LName=Question
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=500
+Top=100
+Field="id","id","serial","NOT NULL",0,"","",$FFFFFFFF,""
+Field="user_id","user_id","integer","NOT NULL",,"","",$FFFFFFFF,""
+Field="content","content","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="answer","answer","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="category","category","varchar(100)","NOT NULL",,"","",$FFFFFFFF,""
+Field="difficulty","difficulty","enum:DifficultyLevel","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20241207065408
+Position="Main",500,100
+ZOrder=2
+
+[Relation]
+Entity1=User
+Entity2=Question
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=user_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1443,8557,1079,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20241207010429
+LineMode=0
+Bar1=144
+Bar2=856
+Bar3=108
+TermPos1=R
+TermPos2=R
+ZOrder=3
+
+[Entity]
+PName=Progress
+LName=Progress
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=350
+Top=500
+Field="id","id","serial","NOT NULL",0,"","",$FFFFFFFF,""
+Field="user_id","user_id","integer","NOT NULL",,"","",$FFFFFFFF,""
+Field="question_id","question_id","integer","NOT NULL",,"","",$FFFFFFFF,""
+Field="status","status","enum:ProgressStatus","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20241207065948
+Position="Main",350,500,136,116
+ZOrder=4
+
+[Relation]
+Entity1=User
+Entity2=Progress
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=user_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1811,4457,0,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20241207065725
+LineMode=0
+Bar1=181
+Bar2=446
+Bar3=0
+TermPos1=R
+TermPos2=R
+ZOrder=5
+
+[Relation]
+Entity1=Question
+Entity2=Progress
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=question_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2562,3188,1261,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20241207065748
+LineMode=0
+Bar1=256
+Bar2=319
+Bar3=126
+TermPos1=R
+TermPos2=R
+ZOrder=6
